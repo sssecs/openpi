@@ -172,10 +172,10 @@ def create_lerobot_dataset_from_raw(dataset_dir, repo_id):
                 "shape": (state_dim,),
                 "names": ["state"],
             },
-            "action": {
+            "actions": {
                 "dtype": "float32",
                 "shape": (action_dim,),
-                "names": ["action"],
+                "names": ["actions"],
             },
         },
         image_writer_threads=10,
@@ -192,7 +192,7 @@ def create_lerobot_dataset_from_raw(dataset_dir, repo_id):
                 "image": sample['fisheye_image'],
                 "wrist_image": sample['wrist_image'],
                 "state": sample['state'],
-                "action": sample['action'],
+                "actions": sample['action'],
                 "task": sample["task"],
             }
             dataset.add_frame(frame_data)
@@ -233,7 +233,7 @@ def main():
         sample = dataset[0]
         print(f"Sample keys: {list(sample.keys())}")
         print(f"State shape: {sample['state'].shape}")
-        print(f"Action shape: {sample['action'].shape}")
+        print(f"Action shape: {sample['actions'].shape}")
         if 'image' in sample:
             print(f"Image shape: {sample['image'].shape}")
         
