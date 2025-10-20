@@ -12,7 +12,7 @@ import numpy as np
 
 REPO_NAME = "sssecs/pika_test"  # Name of the output dataset, also used for the Hugging Face Hub
 DATASET_DIR = "/home/markov/data"
-PUSH_TO_HUB = True
+PUSH_TO_HUB = False
 FPS = 30
 
 
@@ -66,8 +66,8 @@ class EpisodicDataset(torch.utils.data.Dataset):
         start_index = step
         dataset_path = self.dataset_path_list[episode_id]
         with h5py.File(dataset_path, 'r') as root:
-            qpos = root['/arm/jointStatePosition/master'][()]
-            action = root['/arm/jointStatePosition/puppet'][()]
+            qpos = root['/arm/jointStatePosition/puppet'][()]
+            action = root['/arm/jointStatePosition/master'][()]
 
             qpos = torch.from_numpy(qpos[start_index]).float()
             action = torch.from_numpy(action[start_index]).float()
