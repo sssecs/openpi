@@ -12,7 +12,7 @@ import numpy as np
 
 REPO_NAME = "sssecs/pika_test"  # Name of the output dataset, also used for the Hugging Face Hub
 DATASET_DIR = "/home/markov/data"
-PUSH_TO_HUB = False
+PUSH_TO_HUB = True
 FPS = 30
 
 
