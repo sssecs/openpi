@@ -11,7 +11,7 @@ import numpy as np
 
 
 REPO_NAME = "sssecs/pika_test"  # Name of the output dataset, also used for the Hugging Face Hub
-DATASET_DIR = "/home/markov/data"
+DATASET_DIR = "/mnt/hdd/pika_raw_data"
 PUSH_TO_HUB = True
 FPS = 30
 
@@ -99,7 +99,7 @@ class EpisodicDataset(torch.utils.data.Dataset):
                 'wrist_image': wrist_image,
                 'episode_index': episode_id,
                 'timestamp': start_index,
-                'task': "test_task",
+                'task': "put the fluorescent green ball into the spotted mug",
             }
 
     def __len__(self):

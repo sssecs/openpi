@@ -17,6 +17,7 @@ class ZMQJointPosReceiver:
         self.address = address
         self.ctx = zmq.Context()
         self.sub = self.ctx.socket(zmq.SUB)
+        self.sub.setsockopt(zmq.CONFLATE, 1)
         self.sub.connect(self.address)
         self.sub.setsockopt_string(zmq.SUBSCRIBE, "")
         print(f"[ZMQJointPosReceiver] Connected to {self.address}")
