@@ -11,7 +11,7 @@ import numpy as np
 
 
 REPO_NAME = "sssecs/piper_test"  # Name of the output dataset, also used for the Hugging Face Hub
-DATASET_DIR = "/tmp/data"
+DATASET_DIR = "/home/markov/piper_raw_data"
 PUSH_TO_HUB = True
 FPS = 30
 
