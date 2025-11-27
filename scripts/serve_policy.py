@@ -8,9 +8,9 @@ from openpi.training import config as _config
 
 
 def main() -> None:
-    config_name = "pi0_pika"
-    episode_num = "66"
-    train_setp = "9999"
+    config_name = "pi0_piper_lora"
+    episode_num = "60"
+    train_setp = "4999"
 
     config = _config.get_config(config_name)
     checkpoint_dir = "/mnt/hdd/openpi/checkpoints/" + config_name + "_" + episode_num + "_episode/" + train_setp
@@ -19,8 +19,8 @@ def main() -> None:
 
     example = {
         "observation/state": np.random.rand(7),
+        "observation/head_image": np.random.randint(256, size=(224, 224, 3), dtype=np.uint8),
         "observation/image": np.random.randint(256, size=(224, 224, 3), dtype=np.uint8),
-        "observation/wrist_image": np.random.randint(256, size=(224, 224, 3), dtype=np.uint8),
         "task": "do something",
     }
     policy.infer(example)
